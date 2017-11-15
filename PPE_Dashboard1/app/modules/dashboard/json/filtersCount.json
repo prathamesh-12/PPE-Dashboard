@@ -1,0 +1,11 @@
+{
+  "filtersCount" : {
+    "inspectionsDue" : 5,
+    "inspectionsOverdue" : 10,
+    "retired" : 4,
+    "archieved" : 8,
+    "quarantine" : 3,
+    "missing" : 5,
+    "monitor" : 6
+  }
+}

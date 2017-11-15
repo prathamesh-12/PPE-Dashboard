@@ -1,0 +1,70 @@
+.MA-10{
+    margin: 10px;
+}
+.MA-0{
+    margin: 0;
+}
+.product-name-table{
+    font-size: 14px; font-weight: 600;
+}
+.brand-name-table{
+    font-size: 13px; color: #666;
+}
+.item-name-table{
+    font-size: 11px; color: #999;
+}
+.data-table tr td{
+    vertical-align: middle !important;
+}
+.data-table tr th{
+    vertical-align: middle !important; text-align: center;
+}
+.achr-srno{
+    text-decoration: underline;
+}
+.item-title{
+    font-size: 13px; color: #0070c0;
+}
+.item-data{
+    color: #666; font-size: 16px;
+}
+.cstm-modal .modal-header{
+    border-bottom: 2px solid #3c8dbc;
+}
+.days-circle{
+    padding: 4px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+}
+.green-days-circle {
+    background: green;    
+}
+.red-days-circle {
+    background: red;    
+}
+.amber-days-circle {
+    background: #FFC200 ;    
+}
+.due-date{
+    padding: 5px 10px;
+}
+.custom-primary-alert-box {
+    background-color: #d9edf7 !important;
+    color: #31708f !important;
+    padding: 10px;
+    border-radius: 0;
+}
+.custom-primary-alert-box i{
+    font-size: 18px; vertical-align: middle;
+}
+.custom-primary-alert-box .alert-box-text{
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.years-text {
+    font-size: 15px; font-weight: 700; padding-top: 5px;
+}

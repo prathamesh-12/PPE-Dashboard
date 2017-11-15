@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html ng-app="ppeApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PPE</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    
+
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <link  href="libs/css/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet"/> 
+    
+    <link rel="stylesheet" href="libs/css/AdminLTE.css">
+    <link rel="stylesheet" href="libs/css/skin-blue.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/css/dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="libs/css/custom-ppe.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper" ng-controller="appCtrl">
+  <header class="main-header">
+    <a ui-sref="dashboard" class="logo">
+      <span class="logo-mini"><b>PPE</b></span>
+      <span class="logo-lg"><b>PPE</b></span>
+    </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+      <a href="javascript:void(0);" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Notifications Menu -->
+          <li class="dropdown notifications-menu">
+            <!-- Menu toggle button -->
+            <a href="javascripts:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 10 notifications</li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
+
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="javascripts:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-user"></i>
+            </a>
+             <ul class="dropdown-menu">
+                            <!-- User image -->
+                <li class="user-header">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            
+                        </div>
+                        <div class="col-sm-8">
+                            <span>Logged in as : </span><h3>Test</h3>
+                        </div>
+                    </div>
+                </li>
+                <hr class="user-panel-seperator">
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                    <div class="pull-left">
+                        <a ui-sref="app.about" class="btn btn-success btn-flat">About Me</a>
+                    </div>
+                    <div class="pull-right">
+                        <a ui-sref="login" class="btn btn-danger btn-flat">
+                            Log Out
+                            <i class="fa fa-sign-out" aria-hidden="true" style="margin-left:5px;"></i>
+                        </a>
+                        
+                    </div>
+                </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="javascripts:void(0);" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+<!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <!-- Optionally, you can add icons to the links -->
+        <li ng-class="{ active: $state.includes('dashboard') }">
+            <a ui-sref="dashboard">
+              <i class="fa fa-dashboard"></i>
+              <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="treeview" ng-class="{ active: $state.includes('filters') }" >
+          <a ng-click="isLinkOpen = !isLinkOpen"><i class="fa fa-filter"></i> 
+          <span>Check Filters</span>
+            <span class="pull-right-container">
+              <i class="fa pull-right" ng-class="{'fa-angle-up': isLinkOpen, 'fa-angle-right': !isLinkOpen}"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a ui-sref="filters.inspectionsDue">Inspections Due</a></li>
+            <li><a ui-sref="coverage.defects">Inspections Overdue</a></li>
+            <li><a ui-sref="coverage.directory">Retired</a></li>
+            <li><a ui-sref="coverage.commitID">Archieved</a></li>
+            <li><a ui-sref="coverage.files">Quarantine</a></li>
+            <li><a ui-sref="coverage.files">Missing</a></li>
+            <li><a ui-sref="coverage.files">Monitor</a></li>
+          </ul>
+        </li>
+        <li ng-class="{ active: $state.includes('inventory') }">
+            <a ui-sref="inventory">
+              <i class="fa fa-cogs"></i>
+              <span>Add Inventory</span>
+            </a>
+        </li>
+        <li ng-class="{ active: $state.includes('admin') }"><a ui-sref="admin"><i class="fa fa-table"></i> <span>Admin Config</span></a></li>
+        <li ng-class="{ active: $state.includes('info') }"><a ui-sref="info"><i class="fa fa-info-circle"></i> <span>Info</span></a></li>
+      <!--</ul>-->
+      </ul>
+      </ul>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+      <ui-view></ui-view>
+  </div>
+
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      Powered By
+    </div>
+    <!-- Default to the left -->
+    <strong>Sample Footer <a href="#">Company</a>.</strong>
+  </footer>
+  
+  <aside class="control-sidebar control-sidebar-dark">
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li class="active"><a href="javascript:void(0);" data-target="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+      <li><a href="javascript:void(0);" data-target="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="control-sidebar-home-tab">
+        <h3 class="control-sidebar-heading">Recent Activity</h3>
+      </div>
+      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+      <div class="tab-pane" id="control-sidebar-settings-tab">
+        <form method="post">
+          <h3 class="control-sidebar-heading">General Settings</h3>
+        </form>
+      </div>
+    </div>
+  </aside>
+   <div class="control-sidebar-bg"></div>
+</div>
+
+
+
+<script src="libs/jquery/jquery-2.2.3.min.js"></script>
+<!-- <script src="libs/jquery/jquery.dataTables.min.js"></script> -->
+<script src="libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="libs/js/app-ppe.js"></script>
+<script type="text/javascript" src="libs/angular/angular.min.js"></script>
+<script type="text/javascript" src="libs/angular/angular-animate.min.js"></script>
+<script type="text/javascript" src="libs/angular/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="libs/angular/angular-resource.min.js"></script>
+<script type="text/javascript" src="libs/angular/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="libs/angular/angular-material.min.js"></script>
+<script type="text/javascript" src="libs/angular/angular-aria.min.js"></script>
+<script type="text/javascript" src="libs/angular/angular-flash.js"></script>
+<script type="text/javascript" src="libs/angular/angular-messages.min.js"></script>
+<script type="text/javascript" src="libs/angular/tmhDynamicLocale.js"></script>
+<!-- 
+<script type="text/javascript" src="libs/bootstrap/ui-bootstrap-tpls.min.js"></script> -->
+<script type="text/javascript" src="libs/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="libs/datatables/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="libs/datatables/buttons.flash.min.js"></script>
+<script type="text/javascript" src="libs/datatables/jszip.min.js"></script>
+<script type="text/javascript" src="libs/datatables/pdfmake.min.js"></script>
+<script type="text/javascript" src="libs/datatables/vfs_fonts.js"></script>
+<script type="text/javascript" src="libs/datatables/buttons.html5.min.js"></script>
+<script type="text/javascript" src="libs/datatables/buttons.print.min.js"></script>
+<script type="text/javascript" src="libs/angular/angular-datatables.min.js"></script>
+<script type="text/javascript" src="libs/jquery/angular-datatables.bootstrap.min.js"></script>
+<script type="text/javascript" src="libs/jquery/dataTables.bootstrap.min.js"></script>
+
+<script type="text/javascript" src="libs/js/ocLazyLoad.min.js"></script>
+<script type="text/javascript" src="libs/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="app/app.js"></script>
+
+</body>
+</html>

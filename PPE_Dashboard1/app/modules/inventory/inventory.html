@@ -1,0 +1,134 @@
+<section class="content-header">
+    <!--<h3>Inepections Due</h3>-->
+    <ol class="breadcrumb">
+       <li><a><i class="fa fa-dashboard"></i> Inventory</a></li>
+       <li class="active">Home</li>
+    </ol>
+</section>
+<div class="row MA-10">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Add Inventory</h3>
+            <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <!--<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>-->
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info custom-primary-alert-box">
+                 <i class="fa fa-info-circle" aria-hidden="true"></i>
+                 <span class="alert-box-text">You can add new items here.</span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_serailNumber">Serial Number</label>
+                        <input type="text" class="form-control" placeholder="Enter Serial Number" id="txt_serailNumber" ng-model="inventory.serialNumber">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_prodName">Product Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Item Name" id="txt_prodName" ng-model="inventory.prodName">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_brandName">Brand</label>
+                        <input type="text" class="form-control" placeholder="Enter Brand" id="txt_brandName" ng-model="inventory.brandName">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_itemName">Item Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Item Name" id="txt_itemName" ng-model="inventory.itemName">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_inspectDue">Inspection Due</label>
+                        <div class="input-group date custom-datepicker">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right"  ng-model="inventory.inspectionDueDate" placeholder="Select date">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Inspection Intervals</label>
+                        <select class="form-control select2"  
+                                data-placeholder="Select an Interval" 
+                                style="width: 100%;" ng-model="inventory.inspectionIntervals"
+                                ng-init=" inventory.inspectionIntervals = inspectionIntervals[0].id"
+                                ng-options="option.id as option.interval for option in inspectionIntervals">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_shelfLife">Shelf Life</label>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Enter Shelf life years" id="txt_shelfLife" ng-model="inventory.shelflife">
+                            </div>
+                            <div class="col-md-4 years-text">Years</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_operationalLife">Operational Life</label>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Enter Operational life years" id="txt_operationalLife" ng-model="inventory.operationallife">
+                            </div>
+                            <div class="col-md-4 years-text">Years</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_manufacDate">Manufacturing Date</label>
+                        <div class="input-group date custom-datepicker">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right"  ng-model="inventory.manufacDate" placeholder="Select date">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txt_inAction">Item in Action Since</label>
+                        <div class="input-group date custom-datepicker">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right"  ng-model="inventory.itemused" placeholder="Select date">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <button class="btn btn-default pull-right">Clear</button>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary">Add Inventory</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
